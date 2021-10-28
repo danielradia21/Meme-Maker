@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <header>
+        <nav class="navbar flex jusify-center">
+            <div class="logo">Logo</div>
+            <ul class="nav-links clean-li">
+                <li><a href="#gallery" onclick="switchBack()">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main-gallery">
+        <div class="user-nav">
+            <div class="search"><input class="search-bar" type="search" placeholder="Search">
+                <span class="search-sign"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="filters flex">
+                <!-- filters onclick then render -->
+                <span class="filter fun">Funny</span>
+                <span class="filter bad">Bad</span>
+                <span class="filter hap">Happy</span>
+                <span class="filter cute">Cute</span>
+                <span class="filter ani">Animal</span>
+            </div>
+            <div class="more">
+                <!-- pagination -->
+                More
+            </div>
+        </div>
+        <section class="gallery"></section>
+    </section>
+    <!-- meme maker -->
+    <section class="main" hidden>
+        <div class="meme-container flex">
+
+            <div class="canvas-container flex">
+                <canvas id="my-canvas" width="650" height="600"></canvas>
+            </div>
+            <div class="text-nav-btns flex">
+                <button onclick="onMoveUp()" class="btn-move-text">T ⬆</button>
+                <button onclick="onMoveDown()" class="btn-move-text">⬇ T</button>
+                <button onclick="onMoveRight()" class="btn-move-text">T ➡</button>
+                <button onclick="onMoveLeft()" class="btn-move-text">⬅ T</button>
+            </div>
+            <div class="canvas-extras flex">
+                <input oninput="onChangeText(this.value)" maxlength="17" placeholder="write something"
+                    class="meme-input" type="text">
+                <div class="active-btns">
+                    <button onclick="onChangeLine()" class="btn-move">⬆⬇</button>
+                    <button onclick="onAddLine()" class="btn-add">+</button>
+                    <button onclick="onRemoveText()" class="btn-remove"><i class="fas fa-trash"></i></button>
+                </div>
+
+                <div class="font-btns flex">
+                    <div class="font-dec">
+                        <button onclick="onIncSize()">A <i class="plus fas fa-plus"></i></button>
+                        <button onclick="onDesSize()">A <i class="minus fas fa-minus"></i></button>
+                        <button onclick="onAlignText('right')"><i class="fas fa-align-left"></i></button>
+                        <button onclick="onAlignText('center')"><i class="fas fa-align-justify"></i></button>
+                        <button onclick="onAlignText('left')"><i class="fas fa-align-right"></i></button>
+                    </div>
+                    <div class="font-style">
+                        <select onchange="onSetFamily(this.value)" class="font-family-select" name="fonts" id="fonts">
+                            <option value="Impact">Impact</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Tahoma">Tahoma</option>
+                        </select>
+                        
+                        <div class="stroke-container">
+                            <div class="stroke">S</div>
+                            <input oninput="onStrokeColor(this.value)" class="stroke-picker" type="color">
+                        </div>
+
+                        <div class="palette-container">
+                            <div class="palette"><i class="fas fa-palette"></i></div>
+                            <input oninput="onColor(this.value)" class="color-picker" type="color">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="icons flex">
+                    <div class="left">◀</div>
+                    <div>bla</div>
+                    <div>bla</div>
+                    <div>bla</div>
+                    <div>bla</div>
+                    <div class="right">▶</div>
+                </div>
+                <div class="social flex">
+                    <button onclick="onShareToFB()" class="fb-share">Share</button>
+                    <button class="download-btn"><a href="#" download="my-meme.jpg"
+                            onclick="downloadImg(this)">Download</a> </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/84b9566613.js" crossorigin="anonymous"></script>
+    <script src="js/services/meme.servies.js"></script>
+    <script src="js/services/storage.servies.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>
