@@ -11,11 +11,14 @@ function getCanvasPos() {
 }
 
 function init() {
+
   gElCanvas = document.getElementById("my-canvas");
 
   gCtx = gElCanvas.getContext("2d");
   addMouseListeners();
   renderGallery();
+  resizeCanvas();
+
 }
 
 function addMouseListeners() {
@@ -28,6 +31,7 @@ function resizeCanvas() {
   var elContainer = document.querySelector(".canvas-container");
   gElCanvas.width = elContainer.offsetWidth - 50;
   gElCanvas.height = elContainer.offsetHeight - 50;
+
   clearCanvas();
   renderCanvas();
 }
@@ -46,7 +50,7 @@ function renderCanvas() {
 }
 function onCreateMeme(id) {
   createMeme(id);
-  renderCanvas();
+  resizeCanvas();
 }
 
 function onDesSize() {
@@ -124,23 +128,32 @@ function onAlignText(val) {
 function drawMeme(meme) {
   var img = new Image();
   img.src = `./imgs/imgs/${meme.selectedImgId}.jpg`;
-  img.onload = () => {
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-    meme.lines.forEach((line) => {
-      drawText(
-        line.txt,
-        line.position.x,
-        line.position.y,
-        line.size,
-        line.align,
-        line.stroke,
-        line.color,
-        line.family
-      );
-    });
-  };
+  var elContainer = document.querySelector(".canvas-container");
+  gElCanvas.width = elContainer.offsetWidth;
+  gElCanvas.height = elContainer.offsetHeight;
+  
+  // img.onload = () => {
+  drawImgAndTxt(img,meme)
+  // };
   setMeme(meme);
 }
+
+function drawImgAndTxt(img,meme){
+  gCtx.drawImage(img, 25, 25, gElCanvas.width - 50, gElCanvas.height - 50);
+  meme.lines.forEach((line) => {
+    drawText(
+      line.txt,
+      line.position.x,
+      line.position.y,
+      line.size,
+      line.align,
+      line.stroke,
+      line.color,
+      line.family
+    );
+  });
+}
+
 
 function onChangeLine() {
   changeLines();
@@ -169,7 +182,6 @@ function clearCanvas() {
   gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-
 function switchContent() {
   document.querySelector(".main-gallery").hidden = true;
   document.querySelector(".main").hidden = false;
@@ -177,10 +189,17 @@ function switchContent() {
 function switchBack() {
   document.querySelector(".main-gallery").hidden = false;
   document.querySelector(".main").hidden = true;
+  document.querySelector(".screen").classList.remove("open");
+  document.querySelector(".nav-links").classList.remove("nav-menu");
 }
 
 function getCanvas() {
   return gElCanvas;
+}
+
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("nav-menu");
+  document.querySelector(".screen").classList.toggle("open");
 }
 
 function downloadImg(elLink) {
@@ -190,17 +209,3 @@ function downloadImg(elLink) {
   var imgContent = elCanvas.toDataURL("image/jpeg");
   elLink.href = imgContent;
 }
-
-// // save and restore only the style settings! not the text - good for the bonus
-
-// function saveAndRestoreExample() {
-//   gCtx.lineWidth = 2;
-//   gCtx.font = "30px Arial";
-//   gCtx.strokeStyle = "green";
-//   gCtx.strokeText("Saving the context", 10, 50);
-//   gCtx.save();
-//   gCtx.strokeStyle = "black";
-//   gCtx.strokeText("Switching to something else", 10, 100);
-//   gCtx.restore();
-//   gCtx.strokeText("Back to previous context", 10, 150);
-// }

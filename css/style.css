@@ -1,4 +1,3 @@
-
 /* TODO - pics ratio */
 
 /* TODO - media for mobile */
@@ -65,16 +64,41 @@ body {
   font-family: Poppins-med;
   font-size: 1.375rem;
   line-height: 1.625rem;
-  padding-left: 80px;
+  padding-left: 35px;
   padding-top: 23px;
   width: 50%;
 }
+
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
+  opacity: 0;
+  transition: 0.3s;
 }
+
+
+.nav-menu {
+  position: absolute;
+  right: 14%;
+  top: 20%;
+  background: linear-gradient(to left, #2fb26e, #0f9bb4);
+  padding: 0;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 10px;
+  opacity: 1;
+  z-index: 2;
+}
+
+
 
 .nav-links li {
   position: relative;
@@ -96,6 +120,8 @@ body {
   height: 100%;
   text-decoration: none;
   color: white;
+ 
+  
 }
 
 .nav-links li:hover {
@@ -218,21 +244,24 @@ a:hover {
 /* meme-container */
 
 .meme-container {
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin: 25px 90px;
+  margin: 25px 40px;
   height: 86vh;
   background-color: #21252b;
 }
 
 .canvas-container {
-  width: 40%;
+  width: 100%;
   height: 75%;
   background-color: #373b41;
   border-radius: 40px;
+  justify-content: center;
+  align-items: center;
 }
 .canvas-extras {
-  width: 40%;
+  width: 100%;
   height: 75%;
   background-color: #373b41;
   border-radius: 40px;
@@ -244,7 +273,7 @@ a:hover {
 
 .meme-input {
   width: 75%;
-  height: 60px;
+  height: 40px;
   border-radius: 30px;
   padding-inline-end: 30px;
   padding-inline-start: 30px;
@@ -264,14 +293,13 @@ a:hover {
 .active-btns {
   display: flex;
   justify-content: space-evenly;
-  height: 58px;
   width: 75%;
   font-size: 25px;
 }
 
 .active-btns button {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   border-radius: 15px;
   font-size: 1.1em;
   cursor: pointer;
@@ -315,7 +343,7 @@ a:hover {
   justify-content: space-evenly;
   background-color: #19a59f;
   width: 75%;
-  height: 150px;
+  height: 100px;
   border-radius: 15px;
 }
 
@@ -348,10 +376,17 @@ a:hover {
   width: 100%;
   justify-content: space-around;
 }
+
+.font-dec button {
+  height: 40px;
+  width: 40px;
+}
+
 .font-style {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .plus {
@@ -368,6 +403,7 @@ a:hover {
   border-radius: 9px;
   padding: 0 20px;
   cursor: pointer;
+  height: 30px;
 }
 
 .font-family-select:focus {
@@ -379,7 +415,7 @@ a:hover {
 .icons {
   width: 75%;
   background-color: white;
-  height: 90px;
+  height: 60px;
   border-radius: 50px;
   justify-content: space-between;
   align-items: center;
@@ -413,10 +449,12 @@ a:hover {
   border-radius: 15px;
   font-size: 21px;
   color: white;
-  width: 44%;
   cursor: pointer;
   transition: 0.3s;
+  width: 40%;
+  height: 45px;
 }
+
 .social button:active {
   transform: scale(0.85);
 }
@@ -449,7 +487,6 @@ a:hover {
   width: 40px;
   margin-inline-end: 5%;
   transition: 0.3s;
-
 }
 
 .stroke {
@@ -502,7 +539,6 @@ a:hover {
 }
 
 .palette {
-  
   display: flex;
   text-align: center;
   background-color: #fff;
@@ -522,14 +558,16 @@ a:hover {
 /* text-nav-btns */
 
 .text-nav-btns {
-  flex-direction: column;
-  height: 50%;
+  width: 80%;
+  flex-direction: row;
+  height: 18%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .text-nav-btns button {
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
   font-size: 25px;
   border-radius: 15px;
   font-size: 1.1em;
@@ -551,11 +589,6 @@ a:hover {
   border-bottom: 4px solid #048a97;
 }
 /* canvas */
-
-.canvas-container {
-  justify-content: center;
-  align-items: center;
-}
 
 /* helpers */
 .clean-li {
@@ -579,4 +612,95 @@ a {
   justify-content: space-between;
 }
 
+.menu {
+  color: white;
+  top: 42px;
+ opacity: 1;
+  position: absolute;
+  right: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 5;
+}
 
+.menu :active {
+  transform: scale(0.9);
+}
+
+.screen {
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.open {
+  background-color: rgba(0, 0, 0, 0.466);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    opacity: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    opacity: 1;
+  }
+
+  .logo {
+    padding-left: 80px;
+  }
+  .meme-container {
+    flex-direction: row;
+    margin: 25px 40px;
+  }
+  .text-nav-btns {
+    flex-direction: column;
+    height: 50%;
+    width: 30%;
+  }
+  .canvas-container {
+    width: 75%;
+    margin-block-end: 0px;
+  }
+
+  .font-btns {
+    height: 150px;
+  }
+  .text-nav-btns button {
+    height: 60px;
+    width: 60px;
+  }
+  .active-btns button {
+    width: 60px;
+    height: 60px;
+  }
+  .meme-input {
+    height: 60px;
+  }
+  .icons {
+    height: 90px;
+  }
+  .social button {
+    width: 40%;
+    height: 45px;
+  }
+  .font-family-select {
+    height: 40px;
+  }
+
+  .font-dec button {
+    height: 45px;
+    width: 45px;
+  }
+}
