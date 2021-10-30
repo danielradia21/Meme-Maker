@@ -126,8 +126,9 @@ function onAlignText(val) {
 
 // draw img - i need to get the curr img from the servies
 function drawMeme(meme) {
+  
   var img = new Image();
-  img.src = `./imgs/imgs/${meme.selectedImgId}.jpg`;
+  img.src = `imags/imgs/${meme.selectedImgId}.jpg`;
   var elContainer = document.querySelector(".canvas-container");
   gElCanvas.width = elContainer.offsetWidth;
   gElCanvas.height = elContainer.offsetHeight;
@@ -139,7 +140,7 @@ function drawMeme(meme) {
 }
 
 function drawImgAndTxt(img,meme){
-  gCtx.drawImage(img, 25, 25, gElCanvas.width - 50, gElCanvas.height - 50);
+  gCtx.drawImage(img, 15, 15, gElCanvas.width - 30, gElCanvas.height - 30);
   meme.lines.forEach((line) => {
     drawText(
       line.txt,

@@ -92,24 +92,25 @@ function getImgsForDisplay() {
 }
 
 function createImgs() {
-  createImg(gNextId++, ["funny", "bad"], 60, "./imgs/imgs/1.jpg");
-  createImg(gNextId++, "cute", 60, "./imgs/imgs/2.jpg");
-  createImg(gNextId++, "cute", 60, "./imgs/imgs/3.jpg");
-  createImg(gNextId++, "cute", 60, "./imgs/imgs/4.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/5.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/6.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/7.jpg");
-  createImg(gNextId++, "happy", 60, "./imgs/imgs/8.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/9.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/10.jpg");
-  createImg(gNextId++, "happy", 60, "./imgs/imgs/11.jpg");
-  createImg(gNextId++, "happy", 60, "./imgs/imgs/12.jpg");
-  createImg(gNextId++, "bad", 60, "./imgs/imgs/13.jpg");
-  createImg(gNextId++, "bad", 60, "./imgs/imgs/14.jpg");
-  createImg(gNextId++, "bad", 60, "./imgs/imgs/15.jpg");
-  createImg(gNextId++, "funny", 60, "./imgs/imgs/16.jpg");
-  createImg(gNextId++, "bad", 60, "./imgs/imgs/17.jpg");
-  createImg(gNextId++, "bad", 60, "./imgs/imgs/18.jpg");
+  
+  createImg(gNextId++, ["funny", "bad"], 60, "imags/imgs/1.jpg");
+  createImg(gNextId++, "cute", 60, "imags/imgs/2.jpg");
+  createImg(gNextId++, "cute", 60, "imags/imgs/3.jpg");
+  createImg(gNextId++, "cute", 60, "imags/imgs/4.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/5.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/6.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/7.jpg");
+  createImg(gNextId++, "happy", 60, "imags/imgs/8.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/9.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/10.jpg");
+  createImg(gNextId++, "happy", 60, "imags/imgs/11.jpg");
+  createImg(gNextId++, "happy", 60, "imags/imgs/12.jpg");
+  createImg(gNextId++, "bad", 60, "imags/imgs/13.jpg");
+  createImg(gNextId++, "bad", 60, "imags/imgs/14.jpg");
+  createImg(gNextId++, "bad", 60, "imags/imgs/15.jpg");
+  createImg(gNextId++, "funny", 60, "imags/imgs/16.jpg");
+  createImg(gNextId++, "bad", 60, "imags/imgs/17.jpg");
+  createImg(gNextId++, "bad", 60, "imags/imgs/18.jpg");
 }
 
 function createImg(id, title, size, url) {
