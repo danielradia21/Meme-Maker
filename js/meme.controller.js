@@ -211,3 +211,8 @@ function downloadImg(elLink) {
   var imgContent = elCanvas.toDataURL("image/jpeg");
   elLink.href = imgContent;
 }
+
+function closeMenu(){
+  document.querySelector(".screen").classList.remove("open");
+  document.querySelector(".nav-links").classList.remove("nav-menu");
+}
