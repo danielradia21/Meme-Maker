@@ -27,10 +27,12 @@ function addMouseListeners() {
   });
 }
 
-function resizeCanvas() {
+function resizeCanvas(id = -1) {
   var elContainer = document.querySelector(".canvas-container");
   gElCanvas.width = elContainer.offsetWidth - 50;
   gElCanvas.height = elContainer.offsetHeight - 50;
+
+  if(id > -1) createMeme(id)
 
   clearCanvas();
   renderCanvas();
@@ -49,8 +51,7 @@ function renderCanvas() {
   drawMeme(meme);
 }
 function onCreateMeme(id) {
-  createMeme(id);
-  resizeCanvas();
+  resizeCanvas(id);
 }
 
 function onDesSize() {
