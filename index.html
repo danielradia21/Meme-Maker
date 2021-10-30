@@ -48,16 +48,16 @@
                 <canvas id="my-canvas" width="650" height="600"></canvas>
             </div>
             <div class="text-nav-btns flex">
-                <button onclick="onMoveUp()" class="btn-move-text">T ⬆</button>
-                <button onclick="onMoveDown()" class="btn-move-text">⬇ T</button>
-                <button onclick="onMoveRight()" class="btn-move-text">T ➡</button>
-                <button onclick="onMoveLeft()" class="btn-move-text">⬅ T</button>
+                <button onclick="onMoveUp()" class="btn-move-text"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="onMoveDown()" class="btn-move-text"><i class="fas fa-arrow-down"></i></button>
+                <button onclick="onMoveRight()" class="btn-move-text"><i class="fas fa-arrow-right"></i></button>
+                <button onclick="onMoveLeft()" class="btn-move-text"><i class="fas fa-arrow-left"></i></button>
             </div>
             <div class="canvas-extras flex">
                 <input oninput="onChangeText(this.value)" maxlength="17" placeholder="write something"
                     class="meme-input" type="text">
                 <div class="active-btns">
-                    <button onclick="onChangeLine()" class="btn-move">⬆⬇</button>
+                    <button onclick="onChangeLine()" class="btn-move"><i class="fas fa-exchange-alt rotate"></i></button>
                     <button onclick="onAddLine()" class="btn-add">+</button>
                     <button onclick="onRemoveText()" class="btn-remove"><i class="fas fa-trash"></i></button>
                 </div>

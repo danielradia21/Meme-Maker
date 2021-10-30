@@ -304,6 +304,11 @@ a:hover {
   transition: 0.3s;
   line-height: 1;
 }
+
+.active-btns .rotate{
+  transform: rotate(90deg);
+}
+
 .active-btns button:active {
   transform: scale(0.85);
 }
