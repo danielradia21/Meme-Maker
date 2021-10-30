@@ -13,7 +13,7 @@
     <div onclick="closeMenu()" class="screen"></div>
     <header>
         <nav class="navbar flex jusify-center">
-            <div class="logo">Logo</div>
+            <div class="logo">Meme-Me</div>
             <div onclick="toggleMenu()" class="menu"><i class="icon fas fa-bars"></i></div>
             <ul class="nav-links clean-li">
                 <li><a href="#gallery" onclick="switchBack()">Gallery</a></li>
@@ -43,7 +43,7 @@
     </section>
     <!-- meme maker -->
     <section class="main" hidden>
-       
+
         <div class="meme-container flex">
             <div class="canvas-container flex">
                 <canvas id="my-canvas" width="650" height="600"></canvas>
@@ -58,7 +58,8 @@
                 <input oninput="onChangeText(this.value)" maxlength="17" placeholder="write something"
                     class="meme-input" type="text">
                 <div class="active-btns">
-                    <button onclick="onChangeLine()" class="btn-move"><i class="fas fa-exchange-alt rotate"></i></button>
+                    <button onclick="onChangeLine()" class="btn-move"><i
+                            class="fas fa-exchange-alt rotate"></i></button>
                     <button onclick="onAddLine()" class="btn-add">+</button>
                     <button onclick="onRemoveText()" class="btn-remove"><i class="fas fa-trash"></i></button>
                 </div>
@@ -104,6 +105,11 @@
 
         </div>
     </section>
+    <div class="main-footer flex">
+        <div class="footer-container">
+            <footer class="footer"><i class="far fa-copyright"> Created By D.Radia</i></footer>
+        </div>
+    </div>
     <script src="https://kit.fontawesome.com/84b9566613.js" crossorigin="anonymous"></script>
     <script src="js/services/meme.servies.js"></script>
     <script src="js/services/storage.servies.js"></script>
