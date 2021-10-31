@@ -1,17 +1,3 @@
-/* TODO - pics ratio */
-
-/* TODO - media for mobile */
-
-/* TODO about page */
-
-/* TODO more */
-
-/* TODO filter */
-
-/* TODO search */
-
-/* TODO bug fix of input field */
-
 /* basics */
 * {
   box-sizing: border-box;
@@ -79,9 +65,9 @@ body {
 }
 .nav-menu {
   position: fixed;
-  right: 50%;
-  top: 50%;
-  transform: translate(50%, -60%);
+  right: 20%;
+  top: 20%;
+  transform: translate(8%, 0%);
   background: linear-gradient(to left, #2fb26e, #0f9bb4);
   padding: 0;
   height: 300px;
@@ -616,6 +602,8 @@ a {
     padding: 50px 25px;
   }
   .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 15%));
+
     padding: 50px;
   }
 

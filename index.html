@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Meme - Me</title>
 </head>
 
 <body onload="init()">
@@ -16,8 +16,8 @@
             <div class="logo">Meme-Me</div>
             <div onclick="toggleMenu()" class="menu"><i class="icon fas fa-bars"></i></div>
             <ul class="nav-links clean-li">
-                <li><a href="#gallery" onclick="switchBack()">Gallery</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#gallery" onclick="switchBack();renderGallery()">Gallery</a></li>
+                <li><a href="https://danielradia21.github.io/my-gallery/" target="_blank">About</a></li>
             </ul>
         </nav>
     </header>
@@ -26,15 +26,8 @@
             <div class="search"><input class="search-bar" type="search" placeholder="Search">
                 <span class="search-sign"><i class="fas fa-search"></i></span>
             </div>
-            <div class="filters flex">
-                <!-- filters onclick will make text bigger -->
-                <span class="filter fun">Funny</span>
-                <span class="filter bad">Bad</span>
-                <span class="filter hap">Happy</span>
-                <span class="filter cute">Cute</span>
-                <span class="filter ani">Animal</span>
-            </div>
-            <div class="more">
+            <div class="filters flex"></div>
+            <div onclick="onRenderFilters()" class="more">
                 <!-- pagination onclick will be switch the filters -->
                 More
             </div>
@@ -65,14 +58,14 @@
                 </div>
                 <div class="font-btns flex">
                     <div class="font-dec">
-                        <button onclick="onIncSize()">A <i class="plus fas fa-plus"></i></button>
-                        <button onclick="onDesSize()">A <i class="minus fas fa-minus"></i></button>
+                        <button onclick="onChangeSize()">A <i class="plus fas fa-plus"></i></button>
+                        <button onclick="onChangeSize('-')">A <i class="minus fas fa-minus"></i></button>
                         <button onclick="onAlignText('right')"><i class="fas fa-align-left"></i></button>
                         <button onclick="onAlignText('center')"><i class="fas fa-align-justify"></i></button>
                         <button onclick="onAlignText('left')"><i class="fas fa-align-right"></i></button>
                     </div>
                     <div class="font-style">
-                        <select onchange="onSetFamily(this.value)" class="font-family-select" name="fonts" id="fonts">
+                        <select onchange="onSetFamily(this.value)" class="font-family-select" name="fonts">
                             <option value="Impact">Impact</option>
                             <option value="Fantasy">Fantasy</option>
                             <option value="Verdana">Verdana</option>
@@ -88,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- need to fix -->
                 <div class="icons flex">
                     <div class="left"><i class="fas fa-chevron-left"></i></div>
                     <div class="icon"><i class="fas fa-dog"></i></div>

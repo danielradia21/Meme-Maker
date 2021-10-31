@@ -3,6 +3,16 @@
 var gElCanvas;
 var gCtx;
 
+function init() {
+  gElCanvas = document.getElementById("my-canvas");
+  gCtx = gElCanvas.getContext("2d");
+  addEventListeners();
+  renderGallery();
+  resizeCanvas();
+  onRenderFilters();
+}
+
+
 function getCanvasPos() {
   return {
     x: gElCanvas.width,
@@ -10,18 +20,10 @@ function getCanvasPos() {
   };
 }
 
-function init() {
 
-  gElCanvas = document.getElementById("my-canvas");
-
-  gCtx = gElCanvas.getContext("2d");
-  addMouseListeners();
-  renderGallery();
-  resizeCanvas();
-
-}
-
-function addMouseListeners() {
+function addEventListeners() {
+  // addMouseListeners()
+  // addTouchListerners()
   window.addEventListener("resize", () => {
     resizeCanvas();
   });
@@ -32,7 +34,7 @@ function resizeCanvas(id = -1) {
   gElCanvas.width = elContainer.offsetWidth - 50;
   gElCanvas.height = elContainer.offsetHeight - 50;
 
-  if(id > -1) createMeme(id)
+  if (id > -1) createMeme(id);
 
   clearCanvas();
   renderCanvas();
@@ -40,6 +42,7 @@ function resizeCanvas(id = -1) {
 
 function renderGallery() {
   var imgs = getImgsForDisplay();
+
   var strHtmls = imgs.map((img) => {
     return `<img src=${img.url} onclick="switchContent();onCreateMeme('${img.id}');" title="${img.title}" class="img"></img>`;
   });
@@ -54,13 +57,8 @@ function onCreateMeme(id) {
   resizeCanvas(id);
 }
 
-function onDesSize() {
-  desSize();
-  renderCanvas();
-}
-
-function onIncSize() {
-  incSize();
+function onChangeSize(val) {
+  changeSize(val);
   renderCanvas();
 }
 function onRemoveText() {
@@ -127,20 +125,19 @@ function onAlignText(val) {
 
 // draw img - i need to get the curr img from the servies
 function drawMeme(meme) {
-  
   var img = new Image();
   img.src = `imags/imgs/${meme.selectedImgId}.jpg`;
   var elContainer = document.querySelector(".canvas-container");
   gElCanvas.width = elContainer.offsetWidth;
   gElCanvas.height = elContainer.offsetHeight;
-  
+
   // img.onload = () => {
-  drawImgAndTxt(img,meme)
+  drawImgAndTxt(img, meme);
   // };
   setMeme(meme);
 }
 
-function drawImgAndTxt(img,meme){
+function drawImgAndTxt(img, meme) {
   gCtx.drawImage(img, 15, 15, gElCanvas.width - 30, gElCanvas.height - 30);
   meme.lines.forEach((line) => {
     drawText(
@@ -155,7 +152,6 @@ function drawImgAndTxt(img,meme){
     );
   });
 }
-
 
 function onChangeLine() {
   changeLines();
@@ -205,14 +201,40 @@ function toggleMenu() {
 }
 
 function downloadImg(elLink) {
-  console.log("inside");
-  console.log(elLink);
   var elCanvas = getCanvas();
   var imgContent = elCanvas.toDataURL("image/jpeg");
   elLink.href = imgContent;
 }
 
-function closeMenu(){
+function closeMenu() {
   document.querySelector(".screen").classList.remove("open");
   document.querySelector(".nav-links").classList.remove("nav-menu");
+}
+
+// filter ⬇
+
+function renderFilters(filters) {
+  var strHtml = ``;
+  var elFilter = document.querySelector(".filters");
+  filters.forEach((filter) => {
+    var fontSize = getFiltersSize(filter);
+    console.log("fontSize:", fontSize);
+    strHtml += `<span onclick="onFilterSize('${filter}')" 
+    style="font-size:${fontSize}px" class="filter">${filter}</span>`;
+  });
+  elFilter.innerHTML = strHtml;
+}
+
+function onFilterSize(filter) {
+  setFilterBy(filter);
+  filterSize(filter);
+  var filters = getFilters()
+  renderFilters(filters);
+  renderGallery();
+}
+
+function onRenderFilters() {
+  nextPage();
+  var filters = getFilters();
+  renderFilters(filters);
 }
