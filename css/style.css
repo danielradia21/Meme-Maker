@@ -62,6 +62,9 @@ body {
   width: 50%;
   opacity: 0;
   transition: 0.3s;
+  position: absolute;
+  top: -10%;
+    right: -3%;
 }
 .nav-menu {
   position: fixed;
@@ -582,6 +585,7 @@ a {
   transition: 0.4s;
   width: 100%;
   color: white;
+
 }
 
 .footer:hover {

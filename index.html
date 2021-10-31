@@ -16,7 +16,7 @@
             <div class="logo">Meme-Me</div>
             <div onclick="toggleMenu()" class="menu"><i class="icon fas fa-bars"></i></div>
             <ul class="nav-links clean-li">
-                <li><a href="#gallery" onclick="switchBack();renderGallery()">Gallery</a></li>
+                <li><a href="#gallery" onclick="switchBack();renderGallery(false)">Gallery</a></li>
                 <li><a href="https://danielradia21.github.io/my-gallery/" target="_blank">About</a></li>
             </ul>
         </nav>
@@ -28,7 +28,6 @@
             </div>
             <div class="filters flex"></div>
             <div onclick="onRenderFilters()" class="more">
-                <!-- pagination onclick will be switch the filters -->
                 More
             </div>
         </div>

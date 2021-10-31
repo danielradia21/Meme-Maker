@@ -95,7 +95,6 @@ function onAddLine() {
 function onMoveRight() {
   var meme = getMemeForDisplay();
   var txtSize = gCtx.measureText(meme.lines[meme.selectedLineIdx].txt).width;
-  console.log(txtSize);
   moveRight(txtSize);
   renderCanvas();
 }
@@ -218,7 +217,6 @@ function renderFilters(filters) {
   var elFilter = document.querySelector(".filters");
   filters.forEach((filter) => {
     var fontSize = getFiltersSize(filter);
-    console.log("fontSize:", fontSize);
     strHtml += `<span onclick="onFilterSize('${filter}')" 
     style="font-size:${fontSize}px" class="filter">${filter}</span>`;
   });
